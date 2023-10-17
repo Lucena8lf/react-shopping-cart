@@ -26,6 +26,11 @@ export function Products({ products }) {
 							<div className='add-cart'>
 								<button
 									className='add-cart-button'
+									style={{
+										backgroundColor: checkProductInCart(product)
+											? 'red'
+											: '#09e',
+									}}
 									onClick={() =>
 										checkProductInCart(product)
 											? removeFromCart(product)

@@ -3,7 +3,11 @@ import { createContext, useState } from 'react';
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-	const [cart, setCart] = useState([]);
+	const [cart, setCart] = useState(() => {
+		const cartFromStorage = window.localStorage.getItem('cart');
+		if (cartFromStorage) return JSON.parse(cartFromStorage);
+		return [];
+	});
 
 	const addToCart = (product) => {
 		/* Añade un producto al carro */
@@ -11,20 +15,32 @@ export function CartProvider({ children }) {
 		const productInCartIndex = cart.findIndex((item) => item.id === product.id);
 
 		if (productInCartIndex >= 0) {
-			const newCart = cart.slice();
+			// Con structuredClone
 			//const newCart = structuredClone(cart);
-			newCart[productInCartIndex].quantity += 1;
+			//newCart[productInCartIndex].quantity += 1;
+
+			// Con slice (más rápida)
+			const newCart = [
+				...cart.slice(0, productInCartIndex),
+				{
+					...cart[productInCartIndex],
+					quantity: cart[productInCartIndex].quantity + 1,
+				},
+				...cart.slice(productInCartIndex + 1),
+			];
+			window.localStorage.setItem('cart', JSON.stringify(newCart));
 			return setCart(newCart);
 		}
 
 		// No está el producto en el carro
-		setCart((prevState) => {
-			return [...prevState, { ...product, quantity: 1 }];
-		});
+		const newCart = [...cart, { ...product, quantity: 1 }];
+		setCart(newCart);
+		window.localStorage.setItem('cart', JSON.stringify(newCart));
 	};
 
 	const clearCart = () => {
 		setCart([]);
+		window.localStorage.removeItem('cart');
 	};
 
 	const checkProductInCart = (product) => {
@@ -32,7 +48,10 @@ export function CartProvider({ children }) {
 	};
 
 	const removeFromCart = (product) => {
-		setCart((prevState) => prevState.filter((item) => item.id != product.id));
+		//setCart((prevState) => prevState.filter((item) => item.id != product.id));
+		const newCart = cart.filter((item) => item.id != product.id);
+		setCart(newCart);
+		window.localStorage.setItem('cart', JSON.stringify(newCart));
 	};
 
 	return (
