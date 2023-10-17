@@ -4,7 +4,7 @@ export function Header({ setFilters }) {
 	return (
 		<header>
 			<h1>Shopping cart</h1>
-			<Filters setFilters={setFilters} />
+			<Filters />
 		</header>
 	);
 }

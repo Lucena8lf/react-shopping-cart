@@ -12,8 +12,9 @@ ul {
 .product {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: 2rem;
+    padding: 20px;
 }
 
 .product-information {
@@ -32,4 +33,25 @@ ul {
 
 .product span {
     font-size: 15px;
+}
+
+.products li {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    background: #222;
+    color: #fff;
+    padding: 1rem;
+  }
+
+.add-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-cart-button {
+    background: #0f0f0f;
 }
