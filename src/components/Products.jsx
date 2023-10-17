@@ -1,8 +1,11 @@
-import { AddToCartIcon } from './Icons';
+import { useCart } from '../hooks/useCart';
+import { AddToCartIcon, RemoveFromCartIcon } from './Icons';
 import './Products.css';
 
 /* TODO: coger primera imagen válida ya que es un array */
 export function Products({ products }) {
+	const { addToCart, checkProductInCart, removeFromCart } = useCart();
+
 	return (
 		<div className='products'>
 			<ul className='product'>
@@ -21,8 +24,19 @@ export function Products({ products }) {
 								<span>{product.price}$</span>
 							</div>
 							<div className='add-cart'>
-								<button className='add-cart-button'>
-									<AddToCartIcon />
+								<button
+									className='add-cart-button'
+									onClick={() =>
+										checkProductInCart(product)
+											? removeFromCart(product)
+											: addToCart(product)
+									}
+								>
+									{checkProductInCart(product) ? (
+										<RemoveFromCartIcon />
+									) : (
+										<AddToCartIcon />
+									)}
 								</button>
 							</div>
 						</li>

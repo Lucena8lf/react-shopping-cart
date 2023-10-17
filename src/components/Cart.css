@@ -4,7 +4,11 @@
     right: 0px;
     width: 350px;
     display: none;
-    padding-right: 32px;
+    padding-right: 10px;
+    overflow-y: auto; /* Agrega desplazamiento vertical */
+    overflow-x:hidden;
+    max-height: 100vh; /* Establece una altura máxima para evitar que se desborde de la pantalla */
+    background: #222;
 }
 
 .cart > img {
@@ -35,8 +39,6 @@ ul {
     gap: 1rem;
     padding: 1rem;
 }
-
-
 
 .cart-button {
     background: #db2222;
