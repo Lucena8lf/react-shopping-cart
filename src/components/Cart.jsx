@@ -11,7 +11,7 @@ import { useCart } from '../hooks/useCart';
 export function Cart() {
 	const cartCheckboxId = useId();
 	const { cart, clearCart, addToCart } = useCart();
-	console.log(cart);
+	//console.log(cart);
 	return (
 		<div>
 			<label htmlFor={cartCheckboxId} className='cart-button'>
