@@ -1,5 +1,9 @@
 # Shopping cart app
 
+## Descripción
+
+Aplicación web simulando un Ecommerce con carrito de compra desarrollada con React utilizando useContext y useReducer.
+
 ## Objetivos
 
 ### Ecommerce
