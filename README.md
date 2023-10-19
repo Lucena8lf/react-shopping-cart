@@ -20,3 +20,7 @@ Aplicación web simulando un Ecommerce con carrito de compra desarrollada con Re
 - Haz que se puedan modificar la cantidad de productos del carrito.
 - Sincroniza los cambios del carrito con la lista de productos.
 - Guarda en un localStorage el carrito para que se recupere al recargar la página.
+
+## Aplicación Desplegada
+
+Puedes acceder a la aplicación desplegada en: [lucena8lf-react-shopping-cart.surge.sh](lucena8lf-react-shopping-cart.surge.sh)
