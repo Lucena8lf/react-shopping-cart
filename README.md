@@ -23,4 +23,4 @@ Aplicación web simulando un Ecommerce con carrito de compra desarrollada con Re
 
 ## Aplicación Desplegada
 
-Puedes acceder a la aplicación desplegada en: [lucena8lf-react-shopping-cart.surge.sh](lucena8lf-react-shopping-cart.surge.sh)
+Puedes acceder a la aplicación desplegada en: [lucena8lf-react-shopping-cart.surge.sh](https://lucena8lf-react-shopping-cart.surge.sh)
